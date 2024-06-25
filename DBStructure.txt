@@ -1,0 +1,16 @@
+users -> (collection)
+  |
+  |
+  userID -> (document)
+    |
+    |
+    vehicles -> (collection)
+       |
+       |
+       vehicleID -> (document)
+          |
+          |
+          Model -> (field)
+          Make -> (field)
+          ..
+    primary_vehicle -> (field)

@@ -1,0 +1,4 @@
+- Have home primary vehicle update upon setting it. (not only once on mount)
+- Create a alert object (a modal) with props for title, desc and button text.
+- fix weird keyboard bouncing back and forth on android. (if you cant replicate keep opening and closing KB)
+- Make it so that if there is only 1 vehicle, it automatically becomes the primary
