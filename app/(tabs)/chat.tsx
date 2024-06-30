@@ -1,8 +1,8 @@
 import React, { useRef, useEffect, useState, } from 'react';
 import { StyleSheet, View, Text, Image, TextInput, TouchableOpacity, KeyboardAvoidingView, Platform, ScrollView } from 'react-native';
 import { getOpenAIResponse } from '@/js/openai';
-import Colors from '@/components/Colors';
-import Icons from '@/components/Icons';
+import Colors from '@/components/lists/Colors';
+import Icons from '@/components/lists/Icons';
 
 export default function ContactUs() {
   const [messages, setMessages] = useState([

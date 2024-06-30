@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { StyleSheet, View, Text, TouchableOpacity, Image, ScrollView, KeyboardAvoidingView, Platform, Dimensions } from 'react-native';
 import { Video } from 'expo-av';
-import Colors from '@/components/Colors';
+import Colors from '@/components/lists/Colors';
 import LoginModal from '@/components/modals/LoginModal';
 import RegisterModal from '@/components/modals/RegisterModal';
 import { getAuth, signOut } from "firebase/auth";

@@ -1,11 +1,31 @@
-// Import the functions you need from the SDKs you need
+/*
+
+FIRESTORE DB STRUCTURE
+
+users -> (collection)
+  |
+  |
+  userID -> (document)
+    |
+    |
+    vehicles -> (collection)
+       |
+       |
+       vehicleID -> (document)
+          |
+          |
+          Model -> string(field)
+          Make -> string(field)
+          ..
+    primary_vehicle -> vehicleid(field)
+*/
+
 import { initializeApp } from "firebase/app";
 import { initializeAuth } from "@firebase/auth";
 import { getReactNativePersistence } from '@firebase/auth/dist/rn/index.js';
 import ReactNativeAsyncStorage from "@react-native-async-storage/async-storage";
 import { getFirestore } from "firebase/firestore"; // Import Firestore
 
-// Your web app's Firebase configuration
 const firebaseConfig = {
   apiKey: "AIzaSyA0EvkzCzIH2UUFC9x_57EPqx6YRmYGPNI",
   authDomain: "carapp-c49a2.firebaseapp.com",
@@ -26,5 +46,4 @@ const FIREBASE_AUTH = initializeAuth(FIREBASE_APP, {
 // Initialize Firestore
 const FIRESTORE_DB = getFirestore(FIREBASE_APP);
 
-// Correctly export the app, auth, and firestore instances
 export { FIREBASE_APP, FIREBASE_AUTH, FIRESTORE_DB };

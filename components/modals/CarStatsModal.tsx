@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { StyleSheet, View, Modal, TouchableOpacity, SafeAreaView, ScrollView, Image, Text } from 'react-native';
-import Colors from '@/components/Colors';
-import Icons from '@/components/Icons';
+import Colors from '@/components/lists/Colors';
+import Icons from '@/components/lists/Icons';
 import StatInfoModal from '@/components/modals/StatInfoModal';
-import CircularProgressBar from '@/components/CircularProgressBar';
-import vehicleMakesImages from '@/components/LogoDB';
+import CircularProgressBar from '@/components/CircProgressBar';
+import vehicleMakesImages from '@/components/lists/Logos';
 
 export default function CarStatsModal({ visible, onClose, vehicle }) {
   const [modalVisible, setModalVisible] = useState(false);

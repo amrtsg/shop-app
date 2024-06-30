@@ -1,7 +1,7 @@
 import React, { useRef, useEffect } from 'react';
 import { StyleSheet, View, Text, TextInput, TouchableOpacity, Animated, KeyboardAvoidingView, Platform, Modal } from 'react-native';
-import Icons from '@/components/Icons'
-import Colors from '@/components/Colors'
+import Icons from '@/components/lists/Icons';
+import Colors from '@/components/lists/Colors';
 
 export default function ContactModal({ visible, onClose }) {
   return (

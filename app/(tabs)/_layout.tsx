@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Platform } from 'react-native';
 import { Tabs, SplashScreen, router } from 'expo-router'; // Adjust imports as necessary
-import Icons from '@/components/Icons';
-import Colors from '@/components/Colors';
+import Icons from '@/components/lists/Icons';
+import Colors from '@/components/lists/Colors';
 import { FIREBASE_AUTH } from '@/js/firebase';
 import { StatusBar } from 'expo-status-bar';
 

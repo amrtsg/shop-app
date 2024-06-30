@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { StyleSheet, View, Text, TextInput, TouchableOpacity, Modal } from 'react-native';
-import Colors from '@/components/Colors';
-import Icons from '@/components/Icons'
+import Colors from '@/components/lists/Colors';
+import Icons from '@/components/lists/Icons';
 
 export default function StatInfoModal({ visible, onClose }) {
   return (

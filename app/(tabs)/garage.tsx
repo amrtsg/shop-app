@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { StyleSheet, View, Text, Image, TouchableOpacity, SafeAreaView, ScrollView, Alert } from 'react-native';
-import Colors from '@/components/Colors';
-import Icons from '@/components/Icons';
+import Colors from '@/components/lists/Colors';
+import Icons from '@/components/lists/Icons';
 import AddCarModal from '@/components/modals/AddCarModal';
 import RemoveCarModal from '@/components/modals/RemoveCarModal';
 import CarStatsModal  from '@/components/modals/CarStatsModal';
@@ -10,7 +10,7 @@ import {ProgressBar} from '@/components/ProgressBar'; // Import AnimatedProgress
 import { FIRESTORE_DB } from "@/js/firebase";
 import { deleteDoc, doc } from "firebase/firestore";
 import { getAuth } from "firebase/auth";
-import vehicleMakesImages from '@/components/LogoDB';
+import vehicleMakesImages from '@/components/lists/Logos';
 import { fetchUserVehicles, fetchPrimaryID, setPrimaryVehicle } from '@/js/dbutils';
 
 export default function Garage() {

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { StyleSheet, View, Text, TextInput, TouchableOpacity, Modal, KeyboardAvoidingView, Dimensions } from 'react-native';
-import Colors from '@/components/Colors';
-import Icons from '@/components/Icons';
+import Colors from '@/components/lists/Colors';
+import Icons from '@/components/lists/Icons';
 import { getAuth, signOut } from "firebase/auth";
 
 export default function SignOutModal({ visible, onClose }) {

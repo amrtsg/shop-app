@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { StyleSheet, View, Text, SafeAreaView, Image, TextInput, TouchableOpacity, ScrollView } from 'react-native';
-import Colors from '@/components/Colors';
+import Colors from '@/components/lists/Colors';
 import { getAuth } from "firebase/auth";
 
 import { fetchPrimaryVehicle } from "@/js/dbutils";

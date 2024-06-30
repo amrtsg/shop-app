@@ -9,7 +9,7 @@ react-native-svg
 import React, { useEffect, useRef, useState } from 'react';
 import { View, StyleSheet, Animated } from 'react-native';
 import Svg, { Circle } from 'react-native-svg';
-import Colors from '@/components/Colors';
+import Colors from '@/components/lists/Colors';
 
 const CircularProgressBar = ({ size, width, progress, backFill, children }) => {
   const radius = (size - width) / 2;

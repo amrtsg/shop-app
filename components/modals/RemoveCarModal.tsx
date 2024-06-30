@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { StyleSheet, View, Text, TouchableOpacity, Modal, FlatList, KeyboardAvoidingView, Platform, Dimensions, Image } from 'react-native';
-import Colors from '@/components/Colors';
-import Icons from '@/components/Icons';
+import Colors from '@/components/lists/Colors';
+import Icons from '@/components/lists/Icons';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
-import vehicleMakesImages from '@/components/LogoDB';
+import vehicleMakesImages from '@/components/lists/Logos';
 import { FIRESTORE_DB } from "@/js/firebase"
 import { doc, updateDoc} from "firebase/firestore";
 import { getAuth } from "firebase/auth";

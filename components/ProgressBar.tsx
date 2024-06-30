@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { StyleSheet, View, Animated } from 'react-native';
-import Colors from '@/components/Colors';
+import Colors from '@/components/lists/Colors';
 
 export const ProgressBar = ({ progress }) => {
   const [progressAnim] = useState(new Animated.Value(0));

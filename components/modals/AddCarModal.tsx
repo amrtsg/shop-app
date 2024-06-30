@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { StyleSheet, View, TextInput, TouchableOpacity, KeyboardAvoidingView, Platform, Modal, Text, Switch } from 'react-native';
 import { Dropdown } from 'react-native-element-dropdown';
-import Icons from '@/components/Icons';
-import Colors from '@/components/Colors';
+import Icons from '@/components/lists/Icons';
+import Colors from '@/components/lists/Colors';
 import { addDoc, collection } from "firebase/firestore";
 import { FIRESTORE_DB } from "@/js/firebase";
 import { getAuth } from "firebase/auth";
-import { carMakes, carModels } from "@/components/MakeModelDB";
+import { carMakes, carModels } from "@/components/lists/Makes";
 
 export default function AddCarModal({ visible, onClose, onVehicleAdded }) {
   const [make, setMake] = useState('');

@@ -8,8 +8,8 @@ import {
   Image,
   ScrollView,
 } from 'react-native';
-import Colors from '@/components/Colors';
-import Icons from '@/components/Icons';
+import Colors from '@/components/lists/Colors';
+import Icons from '@/components/lists/Icons';
 import ContactModal from '@/components/modals/ContactModal';
 import DeleteModal from '@/components/modals/DelAccModal';
 import SignOutModal from '@/components/modals/SignOutModal';
