@@ -3,7 +3,7 @@ const Colors = {
     tabbar: '#242527',
     
     accent: '#f55139',
-    accentrgb: 'rgba(132, 50, 38, 0.5)',
+    accentrgb: 'rgba(132, 50, 38, 0.8)',
 
     trans: 'rgba(0, 0, 0, 0)',
     transdark: 'rgba(0, 0, 0, 0.1)',

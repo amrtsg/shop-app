@@ -1,72 +1,45 @@
-import React, { useState, useEffect, useCallback } from 'react';
-import { GoogleMap, useJsApiLoader } from '@react-google-maps/api';
+// MapViewComponent.js
+import React, { useState, useEffect } from 'react';
+import { StyleSheet, View } from 'react-native';
+import MapView, { Marker } from 'react-native-maps';
 
-const containerStyle = {
-  width: '400px',
-  height: '200px'
-};
+const MapViewComponent = ({}) => {
 
-export default function Map() {
-  const { isLoaded } = useJsApiLoader({
-    id: 'google-map-script',
-    googleMapsApiKey: "AIzaSyC0rg0FqJy0MYTSbydmGezU3Z5wjUtfl1s"
+  const [region, setRegion] = useState({
+    latitude: 37.78825,
+    longitude: -122.4324,
+    latitudeDelta: 0.0922,
+    longitudeDelta: 0.0421,
   });
 
-  const [map, setMap] = useState(null);
-  const [center, setCenter] = useState({ lat: 0, lng: 0 });
+  return (
+    <View style={styles.mapContainer}>
+      <MapView
+        style={styles.map}
+        region={region}
+        onRegionChangeComplete={setRegion}
+      >
+        <Marker
+          coordinate={{
+            latitude: region.latitude,
+            longitude: region.longitude,
+          }}
+          title={"Primary vehicle location"}
+        />
+      </MapView>
+    </View>
+  );
+};
 
-  useEffect(() => {
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(
-        (position) => {
-          const { latitude, longitude } = position.coords;
-          setCenter({ lat: latitude, lng: longitude });
-        },
-        (error) => {
-          console.error("Error fetching geolocation: ", error);
-        }
-      );
-    } else {
-      console.error("Geolocation is not supported by this browser.");
-    }
-  }, []);
+const styles = StyleSheet.create({
+  mapContainer: {
+    flexBasis: '100%',
+    height: 180,
+    marginBottom: 10,
+  },
+  map: {
+    ...StyleSheet.absoluteFillObject,
+  },
+});
 
-  const onLoad = useCallback((map) => {
-    const bounds = new window.google.maps.LatLngBounds(center);
-    map.fitBounds(bounds);
-
-    setMap(map);
-  }, [center]);
-
-  const onUnmount = useCallback((map) => {
-    setMap(null);
-  }, []);
-
-  return isLoaded ? (
-    <GoogleMap
-      mapContainerStyle={containerStyle}
-      center={center}
-      zoom={10}
-      onLoad={onLoad}
-      onUnmount={onUnmount}
-    >
-      {/* Child components, such as markers, info windows, etc. */}
-      <></>
-    </GoogleMap>
-  ) : <></>;
-}
-
-
-{/* USAGE
-<View style={styles.mapContainer}>
-<Map
-  onLoad={map => {
-    const bounds = new window.google.maps.LatLngBounds();
-    map.fitBounds(bounds);
-  }}
-  onUnmount={map => {
-    // do your stuff before map is unmounted
-  }}
-/>
-</View>
-*/}
+export default MapViewComponent;

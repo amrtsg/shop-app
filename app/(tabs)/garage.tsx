@@ -5,7 +5,7 @@ import Icons from '@/components/lists/Icons';
 import AddCarModal from '@/components/modals/AddCarModal';
 import RemoveCarModal from '@/components/modals/RemoveCarModal';
 import CarStatsModal  from '@/components/modals/CarStatsModal';
-import {ProgressBar} from '@/components/ProgressBar'; // Import AnimatedProgressBar component
+import {ProgressBar} from '@/components/ProgressBar';
 
 import { FIRESTORE_DB } from "@/js/firebase";
 import { deleteDoc, doc } from "firebase/firestore";
@@ -172,11 +172,11 @@ export default function Garage() {
 
       <View style={styles.buttonContainer}>
         <TouchableOpacity style={styles.button} onPress={() => openModal('addcar')}>
-          <Icons.FontAwesome style={styles.buttonText} name='plus' color={Colors.accent} size={20} />
+          <Icons.FontAwesome name='plus' color={Colors.textlight} size={20} />
           <Text style={styles.buttonText}>Add Vehicle</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.button} onPress={() => openModal('removecar')}>
-          <Icons.FontAwesome style={styles.buttonText} name='minus' color={Colors.textlight} size={20} />
+          <Icons.FontAwesome name='minus' color={Colors.textlight} size={20} />
           <Text style={styles.buttonText}>Remove Vehicle</Text>
         </TouchableOpacity>
       </View>

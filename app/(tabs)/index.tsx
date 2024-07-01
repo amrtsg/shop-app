@@ -2,7 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { StyleSheet, View, Text, SafeAreaView, Image, TextInput, TouchableOpacity, ScrollView } from 'react-native';
 import Colors from '@/components/lists/Colors';
 import { getAuth } from "firebase/auth";
-
+import Icons from '@/components/lists/Icons';
+import vehicleMakesImages from '@/components/lists/Logos';
+import Map from '@/components/GoogleMap';
 import { fetchPrimaryVehicle } from "@/js/dbutils";
 
 export default function Home() {
@@ -11,7 +13,7 @@ export default function Home() {
     'Added 2022 Tesla Model S to your garage.',
     'AI Assistant: Your next car maintenance is due in 5 days.'
   ]);
-  const [primaryVehicle, setPrimaryVehicle] = useState<any>(null);
+  const [primaryVehicle, setPrimaryVehicle] = useState(null);
 
   useEffect(() => {
     fetchPrimaryVehicle(setPrimaryVehicle);
@@ -33,33 +35,33 @@ export default function Home() {
 
         {/* Welcome Message */}
         <View style={styles.welcomeContainer}>
-          <Text style={styles.welcomeText}>Hello {getAuth().currentUser?.displayName || 'User'}!</Text>
-          <Text style={styles.subText}>Your one-stop solution for managing and tracking your vehicles efficiently.</Text>
-        </View>
-
-        {/* Quick Access Buttons */}
-        <View style={styles.buttonsContainer}>
-          <TouchableOpacity style={styles.button}>
-            <Text style={styles.buttonText}>Garage</Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.button}>
-            <Text style={styles.buttonText}>Assistant</Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.button}>
-            <Text style={styles.buttonText}>Settings</Text>
-          </TouchableOpacity>
+          <Text style={styles.welcomeText}>
+            <Icons.MaterialCommunityIcons name='hand-wave' color={Colors.orange} size={20} />  Hello {getAuth().currentUser?.displayName || 'User'}!
+          </Text>
         </View>
 
         {/* Primary Vehicle Info */}
         <View style={styles.primaryVehicleContainer}>
-          <Text style={styles.sectionTitle}>Primary Vehicle</Text>
-          {primaryVehicle ? (
-            <Text style={styles.subText}>{primaryVehicle.Make} {primaryVehicle.Model}</Text>
-          ) : (
-            <Text style={styles.subText}>No primary vehicle</Text>
+          <View style={styles.primaryVehicleTextContainer}>
+            <Text style={styles.sectionTitle}><Icons.FontAwesome name='star' color={Colors.orange} size={20} />  Primary Vehicle</Text>
+            {primaryVehicle ? (
+              <>
+              <Text style={styles.subText}>{primaryVehicle.Year} {primaryVehicle.Make} {primaryVehicle.Model}</Text>
+              <Text style={styles.ownerText}>{primaryVehicle.Owner}'s Vehicle</Text>
+              </>
+            ) : (
+              <Text style={styles.subText}>No primary vehicle</Text>
+            )}
+          </View>
+          {primaryVehicle && (
+            <Image style={styles.carImage} source={{ uri: vehicleMakesImages[primaryVehicle.Make] }} />
           )}
         </View>
 
+        {/* Map */}
+        <Map/>
+
+        <View style={styles.separator} />
         {/* Search Bar */}
         <View style={styles.searchContainer}>
           <Text style={styles.sectionTitle}>Book an Appointment</Text>
@@ -77,7 +79,7 @@ export default function Home() {
 
         {/* Recent Activity */}
         <View style={styles.infoContainer}>
-          <Text style={styles.sectionTitle}>Recent Activity</Text>
+          <Text style={styles.sectionTitle}><Icons.Feather name='activity' color={Colors.accent} size={16} />  Recent Activity</Text>
           {recentActivity.map((activity, index) => (
             <View key={index}>
               <Text style={styles.subText}>{activity}</Text>
@@ -90,10 +92,10 @@ export default function Home() {
 
         {/* Garage Overview */}
         <View style={styles.infoContainer}>
-          <Text style={styles.sectionTitle}>Garage Overview</Text>
+          <Text style={styles.sectionTitle}><Icons.MaterialIcons name='garage' color={Colors.accent} size={16} />  Overview</Text>
           <Text style={styles.subText}>Total Cars: 5</Text>
           <Text style={styles.subText}>Next Maintenance: {primaryVehicle ? `2022 Tesla Model S in 5 days` : 'N/A'}</Text>
-          {/* Adjust the maintenance text based on actual data */}
+          {/* TODO: Adjust the maintenance text based on actual data */}
         </View>
 
       </ScrollView>
@@ -117,7 +119,7 @@ const styles = StyleSheet.create({
   },
   bodyContainer: {
     flex: 1,
-    paddingBottom: 40,
+    marginBottom: 60,
   },
   gridContainer: {
     padding: 16,
@@ -127,7 +129,7 @@ const styles = StyleSheet.create({
   },
   welcomeContainer: {
     flexBasis: '100%',
-    marginBottom: 20,
+    marginBottom: 5,
     alignItems: 'center',
   },
   welcomeText: {
@@ -140,11 +142,9 @@ const styles = StyleSheet.create({
     paddingBottom: 5,
     color: Colors.textlight,
   },
-  buttonsContainer: {
-    flexBasis: '100%',
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    marginBottom: 20,
+  ownerText: {
+    paddingBottom: 5,
+    color: Colors.accent,
   },
   primaryVehicleContainer: {
     flexBasis: '100%',
@@ -152,6 +152,12 @@ const styles = StyleSheet.create({
     padding: 16,
     borderRadius: 8,
     marginBottom: 20,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
+  primaryVehicleTextContainer: {
+    flex: 1,
   },
   infoContainer: {
     flexBasis: '48%',
@@ -159,9 +165,6 @@ const styles = StyleSheet.create({
     padding: 16,
     borderRadius: 8,
     marginBottom: 20,
-  },
-  activityText: {
-    color: Colors.textlight,
   },
   searchContainer: {
     flexBasis: '100%',
@@ -198,7 +201,12 @@ const styles = StyleSheet.create({
   },
   separator: {
     height: 1,
-    backgroundColor: Colors.translight1,
+    backgroundColor: Colors.accentrgb,
     marginVertical: 2,
+  },
+  carImage: {
+    width: 80,
+    height: 80,
+    resizeMode: 'contain',
   },
 });
