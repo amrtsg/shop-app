@@ -1,1 +1,1 @@
-```npm install``` to install all dependencies.
+```npm i``` to install all dependencies.
