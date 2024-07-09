@@ -4,7 +4,7 @@ import Colors from '@/components/lists/Colors';
 import { getAuth } from "firebase/auth";
 import Icons from '@/components/lists/Icons';
 import vehicleMakesImages from '@/components/lists/Logos';
-import Map from '@/components/GoogleMap';
+import Map from '@/components/GoogleMap'; // WILL CAUSE IMPORT ERROR ON WEB!!!
 import { fetchPrimaryVehicle } from "@/js/dbutils";
 
 export default function Home() {
