@@ -27,7 +27,7 @@ import ReactNativeAsyncStorage from "@react-native-async-storage/async-storage";
 import { getFirestore } from "firebase/firestore"; // Import Firestore
 
 const firebaseConfig = {
-  apiKey: "AIzaSyA0EvkzCzIH2UUFC9x_57EPqx6YRmYGPNI",
+  apiKey: "GITHUB",
   authDomain: "carapp-c49a2.firebaseapp.com",
   projectId: "carapp-c49a2",
   storageBucket: "carapp-c49a2.appspot.com",
