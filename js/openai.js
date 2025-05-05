@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const OPENAI_API_KEY = 'sk-proj-1ti4btY4Jhc5OLvFqUi4T3BlbkFJKABZoGdqpr8r2qusXu4I';
+const OPENAI_API_KEY = 'GITHUB';
 
 const openaiApi = axios.create({
   baseURL: 'https://api.openai.com/v1',
